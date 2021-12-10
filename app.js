@@ -71,8 +71,9 @@ function displayGoblins() {
                 if (goblin.hp === 0) {
                     killedGoblinsCount++;
                     alert('you killed ' + goblin.name + '!');
+                    killedListEl.append(goblinEl);
                 }
-
+                
                 if (playerHP === 0) {
                     heroImgEl.classList.add('game-over');
                     alert('YOUR REIGN OF TERROR HAS ENDED');
