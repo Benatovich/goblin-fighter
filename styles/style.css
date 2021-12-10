@@ -133,11 +133,15 @@ footer {
 
 .goblin-stats button {
     font-size: 2em;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
 }
 
 .goblin-stats input {
     font-size: 3rem;
     width: 80%;
+    border-bottom-left-radius: 15px;
+    border-top-left-radius: 15px;
 }
 
 .goblins {
@@ -161,9 +165,13 @@ footer {
     border-radius: 15px;
 }
 
-.killed-list {
+.killed-list .full {
     font-size: 1em;
     display: grid;
+    color: white;
+    background-color: rebeccapurple;
+    padding: 20px;
+    border-radius: 15px;
 }
 
 form {
@@ -175,28 +183,26 @@ form {
     background-color: lightblue;
     color: brown;
     margin: 10px;
+    margin-bottom: 0;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
 }
 
 .face {
-    margin: 10px;
+    margin: 0 10px;
     background-color: lightblue;
     color: brown;
+    /* border-radius: 15px; */
 }
 
 .hp {
-    margin: 10px;
+    margin: 0 10px;
     background-color: lightblue;
     color: brown;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
 }
 
 .goblin-img {
     width: 150px;
-}
-
-.goblin-img .dead {
-    width: 5px;
-}
-
-.dead {
-    
 }

@@ -15,6 +15,10 @@ let goblins = [
     { name: 'Captain Clara', hp: 4 },
 ];
 
+if (killedListEl.textContent !== '') {
+    killedListEl.classList.add('full');
+}
+
 // new goblin form
 form.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -24,8 +28,13 @@ form.addEventListener('submit', (e) => {
     const goblinName = data.get('goblin-name');
 
     // make a new goblin object with that user input
+    // const newGoblin = {
+      //     name: goblinName,
+      //     hp: Math.ceil(Math.random() * 5),
+      // };
+    // TESTING SOMETHING NEW HERE
     const newGoblin = {
-        name: goblinName,
+        name: (goblinName === '') ? `Goblin #${Math.floor(Math.random() * 5000)}` : goblinName,
         hp: Math.ceil(Math.random() * 5),
     };
     // add that object to the array of goblins in state

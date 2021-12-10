@@ -18,7 +18,7 @@ export function renderGoblin(goblinData) {
 
     // use a "ternary" to set the face
     // if the goblin lives, do an imp emoji; else do a fire emoji
-    faceEl.textContent = goblinData.hp > 0 ? '😈' : '🔥';
+    faceEl.textContent = goblinData.hp > 0 ? '😈' : '💀';
 
     if (goblinData.hp < 0) {
         goblinEl.classList.add('dead');
