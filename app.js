@@ -37,23 +37,57 @@ form.addEventListener('submit', (e) => {
 function displayGoblins() {
     // 'update a list'
     // clear out the list DOM
+    goblinListEl.textContent = '';
 
     // loop through the goblins
+    for (let goblin of goblins) {
 
-    // render a new goblin DOM element for each item
+      // render a new goblin DOM element for each item
+        const goblinEl = renderGoblin(goblin);
 
       // append that element to the HTML
 
+      // since we have a goblin element, we can make each goblin clickable
+        // this is a DYNAMIC EVENT LISTENER. we make a new one for every goblin
+        // event listeners are properties just like text content or style. we add it to elements.
+        if (goblin.hp > 0) {
+            goblinEl.addEventListener('click', () => {
+              // each goblin is clickable
+              // on click, possibly decrement the goblin's HP
+                if (Math.random() < .33) {
+                    goblin.hp--;
+                    alert('you hurt ' + goblin.name);
+                } else {
+                    alert('you tried to hit ' + goblin.name + ' but you failed');
+                }
+                  // possibly decrement player HP
+                if (Math.random() < .5) {
+                    playerHP--;
+                    alert(goblin.name + ' defended themselves!');
+                } else {
+                    alert(goblin.name + ' tried to defend themselves but failed!');
+                }
 
-    // since we have a goblin element, we can make each goblin clickable
-    // this is a DYNAMIC EVENT LISTENER. we make a new one for every goblin
-    // event listeners are properties just like text content or style. we add it to elements.
- 
-      // each goblin is clickable
-      // on click, possibly decrement the goblin's HP
+                if (goblin.hp === 0) {
+                    killedGoblinsCount++;
+                    alert('you killed ' + goblin.name + '!');
+                }
 
-      // possibly decrement player HP
+                if (playerHP === 0) {
+                    heroImgEl.classList.add('game-over');
+                    alert('YOUR REIGN OF TERROR HAS ENDED');
+                    alert('GAME OVER');
+                }
+                  // update DOM with new goblin/player/defeated goblin state
+                heroHPEl.textContent = playerHP;
+                killCounterEl.textContent = killedGoblinsCount;
 
-
-    // update DOM with new goblin/player/defeated goblin state
+                displayGoblins;
+            });
+        }
+        
+        goblinListEl.append(goblinEl);     
+    }
 }
+
+displayGoblins();
