@@ -55,14 +55,18 @@ function displayGoblins() {
             goblinEl.addEventListener('click', () => {
               // each goblin is clickable
               // on click, possibly decrement the goblin's HP
-                if (Math.random() < .33) {
+              // TEST CODE BELOW
+                // if (Math.random() < .33) {
+                if (Math.random() < 1) {
                     goblin.hp--;
+                    displayGoblins();
                     alert('you hurt ' + goblin.name);
                 } else {
                     alert('you tried to hit ' + goblin.name + ' but you failed');
                 }
-                  // possibly decrement player HP
-                if (Math.random() < .5) {
+                  // possibly decrement player HP TEST CODE BELOW
+                // if (Math.random() < .5) {
+                if (Math.random() < .1) {
                     playerHP--;
                     alert(goblin.name + ' attacked you in self-defense!');
                 } else {
@@ -72,7 +76,7 @@ function displayGoblins() {
                 if (goblin.hp === 0) {
                     killedGoblinsCount++;
                     alert('you killed ' + goblin.name + '!');
-                    killedListEl.append(goblinEl);
+                    killedListEl.append(`${goblin.name}, `);
                 }
                 
                 if (playerHP === 0) {

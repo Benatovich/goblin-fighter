@@ -22,7 +22,7 @@ export function renderGoblin(goblinData) {
 
     if (goblinData.hp < 0) {
         goblinEl.classList.add('dead');
-        goblinEl.remove(img);
+        // goblinEl.remove(img);
     }
 
     goblinEl.append(nameEl, faceEl, hpEl, img);

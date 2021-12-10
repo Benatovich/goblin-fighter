@@ -140,6 +140,15 @@ footer {
     width: 80%;
 }
 
+.goblins {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.goblin {
+    display: inline-block;
+}
+
 .goblins-killed {
     text-align: center;
 }
@@ -154,6 +163,7 @@ footer {
 
 .killed-list {
     font-size: 1em;
+    display: grid;
 }
 
 form {
@@ -185,4 +195,8 @@ form {
 
 .goblin-img .dead {
     width: 5px;
+}
+
+.dead {
+    
 }
