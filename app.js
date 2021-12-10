@@ -9,7 +9,7 @@ const goblinListEl = document.querySelector('.goblins');
 
 // let state
 let killedGoblinsCount = 0;
-let playerHP = 1;
+let playerHP = 10;
 let goblins = [
     { name: 'Harold', hp: 1 },
     { name: 'Captain Clara', hp: 4 },
@@ -46,6 +46,7 @@ function displayGoblins() {
         const goblinEl = renderGoblin(goblin);
 
       // append that element to the HTML
+        goblinListEl.append(goblinEl);
 
       // since we have a goblin element, we can make each goblin clickable
         // this is a DYNAMIC EVENT LISTENER. we make a new one for every goblin
@@ -63,7 +64,7 @@ function displayGoblins() {
                   // possibly decrement player HP
                 if (Math.random() < .5) {
                     playerHP--;
-                    alert(goblin.name + ' defended themselves!');
+                    alert(goblin.name + ' attacked you in self-defense!');
                 } else {
                     alert(goblin.name + ' tried to defend themselves but failed!');
                 }

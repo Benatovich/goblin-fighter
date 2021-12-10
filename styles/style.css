@@ -145,11 +145,15 @@ footer {
 }
 
 .goblins-killed p {
-    font-size: 2rem;
+    font-size: 2em;
     color: white;
     background-color: rebeccapurple;
     padding: 20px;
     border-radius: 15px;
+}
+
+.killed-list {
+    font-size: 1em;
 }
 
 form {
