@@ -160,3 +160,29 @@ form {
     padding: 20px;
     display: flex;
 }
+
+.name {
+    background-color: lightblue;
+    color: brown;
+    margin: 10px;
+}
+
+.face {
+    margin: 10px;
+    background-color: lightblue;
+    color: brown;
+}
+
+.hp {
+    margin: 10px;
+    background-color: lightblue;
+    color: brown;
+}
+
+.goblin-img {
+    width: 150px;
+}
+
+.goblin-img .dead {
+    width: 5px;
+}
