@@ -29,14 +29,9 @@ body {
     
     font-family: 'Titillium Web', sans-serif;
     background-color: var(--color2);
-}
-
-main {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: calc(var(--footer-height));
+    background-image: url(../assets/castle.jpg);
+    background-size: cover;
+    text-align: center;
 }
 
 section {
@@ -51,6 +46,11 @@ section {
     margin-top: var(--gutter);
     margin-bottom: var(--gutter);
     border: solid 2px var(--color1);
+}
+
+main {
+    display: flex;
+    height: 100%;
 }
 
 header {
@@ -88,4 +88,71 @@ footer {
     justify-content: flex-end;
     background-color: var(--color3);
     box-shadow: var(--shadow);
+}
+
+.hero-stats {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.hero img {
+    width: 250px;
+}
+
+.hero {
+    color: red;
+    font-size: 3rem;
+    font-weight: 900;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    padding: 5px;
+}
+
+.hero p {
+    background-color: black;
+    border-radius: 15px;
+    padding: 20px;
+}
+
+.goblin-stats {
+ width: 50%;
+ display: flex;
+ justify-content: center;
+ flex-direction: column;
+ justify-content: space-between;
+ align-items: center;   
+}
+
+.goblin-stats input, .goblin-stats button {
+    height: 100px;
+}
+
+.goblin-stats button {
+    font-size: 2em;
+}
+
+.goblin-stats input {
+    font-size: 3rem;
+    width: 80%;
+}
+
+.goblins-killed {
+    text-align: center;
+}
+
+.goblins-killed p {
+    font-size: 2rem;
+    color: white;
+    background-color: rebeccapurple;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+form {
+    padding: 20px;
+    display: flex;
 }
