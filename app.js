@@ -73,14 +73,14 @@ function displayGoblins() {
                 // if (Math.random() < .1) {
                 if (Math.random() < .5) {
                     playerHP--;
-                    alert(goblin.name + ' attacked you in self-defense!');
+                    alert('You\'ve been struck by ' + goblin.name + '\'s counterattack!');
                 } else {
-                    alert(goblin.name + ' tried to defend themselves but failed!');
+                    alert('You blocked ' + goblin.name + '\'s counterattack!');
                 }
 
                 if (goblin.hp === 0) {
                     killedGoblinsCount++;
-                    alert('you killed ' + goblin.name + '!');
+                    alert('You killed ' + goblin.name + '!');
                     killedListEl.append(`${goblin.name}, `);
                     killedListEl.style.backgroundColor = 'rebeccapurple';
                 }
