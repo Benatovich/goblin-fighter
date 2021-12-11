@@ -159,7 +159,7 @@ footer {
 
 .goblins-killed p {
     font-size: 2em;
-    color: white;
+    color: blue;
     /* background-color: rebeccapurple; */
     background-image: url('../assets/jake-background.jpg');
     /* background-position: bottom; */
@@ -171,7 +171,7 @@ footer {
 .killed-list {
     font-size: 1em;
     display: grid;
-    color: white;
+    color: blue;
     /* background-color: rebeccapurple; */
     padding: 20px;
     border-radius: 15px;

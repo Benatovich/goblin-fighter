@@ -15,9 +15,11 @@ let goblins = [
     { name: 'Captain Clara', hp: 4 },
 ];
 
+heroHPEl.textContent = playerHP;
+
 if (playerHP > 0) {
     heroImgEl.src = './assets/hero.png';
-} else {
+} else if (playerHP <= 0) {
     heroImgEl.src = './assets/dead-goblin.png';
 }
 
