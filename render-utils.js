@@ -5,7 +5,11 @@ export function renderGoblin(goblinData) {
     const hpEl = document.createElement('p');
     const img = document.createElement('img');
 
-    img.src = './assets/goblin.png';
+    if (goblinData.hp > 0) {
+        img.src = './assets/goblin.png';
+    } else {
+        img.src = './assets/dead-goblin.png';
+    }
 
     goblinEl.classList.add('goblin');
     faceEl.classList.add('face');
@@ -20,7 +24,7 @@ export function renderGoblin(goblinData) {
     // if the goblin lives, do an imp emoji; else do a fire emoji
     faceEl.textContent = goblinData.hp > 0 ? '😈' : '💀';
 
-    if (goblinData.hp < 0) {
+    if (goblinData.hp <= 0) {
         goblinEl.classList.add('dead');
         // goblinEl.remove(img);
     }

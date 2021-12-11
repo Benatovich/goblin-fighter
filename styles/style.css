@@ -163,15 +163,17 @@ footer {
     background-color: rebeccapurple;
     padding: 20px;
     border-radius: 15px;
+    margin: 20px;
 }
 
-.killed-list .full {
+.killed-list {
     font-size: 1em;
     display: grid;
     color: white;
-    background-color: rebeccapurple;
+    /* background-color: rebeccapurple; */
     padding: 20px;
     border-radius: 15px;
+    margin: 20px;
 }
 
 form {

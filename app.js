@@ -1,11 +1,11 @@
 // import functions and grab DOM elements
 import { renderGoblin } from './render-utils.js';
 const killCounterEl = document.querySelector('#killed-number');
-const killedListEl = document.querySelector('.killed-list');
 const heroHPEl = document.querySelector('#hero-hp');
 const heroImgEl = document.querySelector('#hero-img');
 const form = document.querySelector('form');
 const goblinListEl = document.querySelector('.goblins');
+const killedListEl = document.querySelector('.killed-list');
 
 // let state
 let killedGoblinsCount = 0;
@@ -14,10 +14,6 @@ let goblins = [
     { name: 'Harold', hp: 1 },
     { name: 'Captain Clara', hp: 4 },
 ];
-
-if (killedListEl.textContent !== '') {
-    killedListEl.classList.add('full');
-}
 
 // new goblin form
 form.addEventListener('submit', (e) => {
@@ -65,17 +61,17 @@ function displayGoblins() {
               // each goblin is clickable
               // on click, possibly decrement the goblin's HP
               // TEST CODE BELOW
-                // if (Math.random() < .33) {
-                if (Math.random() < 1) {
+                // if (Math.random() < 1) {
+                if (Math.random() < .33) {
                     goblin.hp--;
                     displayGoblins();
-                    alert('you hurt ' + goblin.name);
+                    alert('You\'ve injured ' + goblin.name + '!');
                 } else {
-                    alert('you tried to hit ' + goblin.name + ' but you failed');
+                    alert(goblin.name + ' defended themselves!');
                 }
                   // possibly decrement player HP TEST CODE BELOW
-                // if (Math.random() < .5) {
-                if (Math.random() < .1) {
+                // if (Math.random() < .1) {
+                if (Math.random() < .5) {
                     playerHP--;
                     alert(goblin.name + ' attacked you in self-defense!');
                 } else {
@@ -86,6 +82,7 @@ function displayGoblins() {
                     killedGoblinsCount++;
                     alert('you killed ' + goblin.name + '!');
                     killedListEl.append(`${goblin.name}, `);
+                    killedListEl.style.backgroundColor = 'rebeccapurple';
                 }
                 
                 if (playerHP === 0) {
