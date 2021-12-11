@@ -11,7 +11,7 @@ const gameOverEl = document.querySelector('body');
 
 // let state
 let killedGoblinsCount = 0;
-let playerHP = 1;
+let playerHP = 10;
 let goblins = [
     { name: 'Harold', hp: 1 },
     { name: 'Captain Clara', hp: 4 },
