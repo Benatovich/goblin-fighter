@@ -1,11 +1,13 @@
 // import functions and grab DOM elements
 import { renderGoblin } from './render-utils.js';
 const killCounterEl = document.querySelector('#killed-number');
-const killedListEl = document.querySelector('.killed-list');
 const heroHPEl = document.querySelector('#hero-hp');
 const heroImgEl = document.querySelector('#hero-img');
 const form = document.querySelector('form');
 const goblinListEl = document.querySelector('.goblins');
+const killedListEl = document.querySelector('.killed-list');
+const worldEl = document.querySelector('main');
+const gameOverEl = document.querySelector('body');
 
 // let state
 let killedGoblinsCount = 0;
@@ -14,6 +16,14 @@ let goblins = [
     { name: 'Harold', hp: 1 },
     { name: 'Captain Clara', hp: 4 },
 ];
+
+heroHPEl.textContent = playerHP;
+
+if (playerHP > 0) {
+    heroImgEl.src = './assets/hero.png';
+} else if (playerHP <= 0) {
+    heroImgEl.src = './assets/dead-goblin.png';
+}
 
 // new goblin form
 form.addEventListener('submit', (e) => {
@@ -24,8 +34,13 @@ form.addEventListener('submit', (e) => {
     const goblinName = data.get('goblin-name');
 
     // make a new goblin object with that user input
+    // const newGoblin = {
+      //     name: goblinName,
+      //     hp: Math.ceil(Math.random() * 5),
+      // };
+    // TESTING SOMETHING NEW HERE
     const newGoblin = {
-        name: goblinName,
+        name: (goblinName === '') ? `Goblin #${Math.floor(Math.random() * 5000)}` : goblinName,
         hp: Math.ceil(Math.random() * 5),
     };
     // add that object to the array of goblins in state
@@ -55,41 +70,59 @@ function displayGoblins() {
             goblinEl.addEventListener('click', () => {
               // each goblin is clickable
               // on click, possibly decrement the goblin's HP
+              // TEST CODE BELOW
+                // if (Math.random() < 1) {
                 if (Math.random() < .33) {
                     goblin.hp--;
-                    alert('you hurt ' + goblin.name);
+                    displayGoblins();
+                    alert('You\'ve injured ' + goblin.name + '!');
                 } else {
-                    alert('you tried to hit ' + goblin.name + ' but you failed');
+                    alert(goblin.name + ' defended themselves!');
                 }
-                  // possibly decrement player HP
+                  // possibly decrement player HP TEST CODE BELOW
+                // if (Math.random() < .1) {
                 if (Math.random() < .5) {
                     playerHP--;
-                    alert(goblin.name + ' attacked you in self-defense!');
+                    alert('You\'ve been struck by ' + goblin.name + '\'s counterattack!');
                 } else {
-                    alert(goblin.name + ' tried to defend themselves but failed!');
+                    alert('You blocked ' + goblin.name + '\'s counterattack!');
                 }
 
                 if (goblin.hp === 0) {
                     killedGoblinsCount++;
-                    alert('you killed ' + goblin.name + '!');
-                    killedListEl.append(goblinEl);
+                    alert('You killed ' + goblin.name + '!');
+                    killedListEl.append(`${goblin.name}, `);
+                    killedListEl.style.backgroundImage = "url('./assets/jake-background.jpg')";
                 }
                 
                 if (playerHP === 0) {
                     heroImgEl.classList.add('game-over');
-                    alert('YOUR REIGN OF TERROR HAS ENDED');
                     alert('GAME OVER');
+                    worldEl.style.visibility = 'hidden';
+                    gameOverEl.style.backgroundImage = "url('./assets/jake-background.jpg')";
+                    gameOverEl.classList.add('game-over');
+                    gameOverEl.textContent = `Your reign of terror has finally come to an end!  You\'ll get \'em next time, pal.`;
+                    // killCounterEl.style.visibility = 'hidden';
+                    // heroHPEl.style.visibility = 'hidden';
+                    // form.style.visibility = 'hidden';
+                    // goblinListEl.style.visibility = 'hidden';
+                    // killedListEl.style.visibility = 'hidden';
+                    // hero.style.visibility = 'hidden';
                 }
                   // update DOM with new goblin/player/defeated goblin state
                 heroHPEl.textContent = playerHP;
                 killCounterEl.textContent = killedGoblinsCount;
 
-                displayGoblins;
+                displayGoblins();
             });
         }
         
         goblinListEl.append(goblinEl);     
     }
+}
+
+if (worldEl.style.visibility === 'hidden') {
+    gameOverEl.style.backgroundImage = "url('./assets/jake-background.jpg')";
 }
 
 displayGoblins();
