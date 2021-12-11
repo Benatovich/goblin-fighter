@@ -15,6 +15,12 @@ let goblins = [
     { name: 'Captain Clara', hp: 4 },
 ];
 
+if (playerHP > 0) {
+    heroImgEl.src = './assets/hero.png';
+} else {
+    heroImgEl.src = './assets/dead-goblin.png';
+}
+
 // new goblin form
 form.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -82,7 +88,8 @@ function displayGoblins() {
                     killedGoblinsCount++;
                     alert('You killed ' + goblin.name + '!');
                     killedListEl.append(`${goblin.name}, `);
-                    killedListEl.style.backgroundColor = 'rebeccapurple';
+                    // killedListEl.style.backgroundColor = 'rebeccapurple';
+                    killedListEl.style.backgroundImage = "url('./assets/jake-background.jpg')";
                 }
                 
                 if (playerHP === 0) {
