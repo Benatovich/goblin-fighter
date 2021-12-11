@@ -100,6 +100,8 @@ function displayGoblins() {
                     alert('GAME OVER');
                     worldEl.style.visibility = 'hidden';
                     gameOverEl.style.backgroundImage = "url('./assets/jake-background.jpg')";
+                    gameOverEl.classList.add('game-over');
+                    gameOverEl.textContent = `Your reign of terror has finally come to an end!  You\'ll get \'em next time, pal.`;
                     // killCounterEl.style.visibility = 'hidden';
                     // heroHPEl.style.visibility = 'hidden';
                     // form.style.visibility = 'hidden';

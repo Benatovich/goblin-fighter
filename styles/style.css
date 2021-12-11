@@ -212,3 +212,13 @@ form {
 .goblin-img {
     width: 150px;
 }
+
+.game-over {
+    font-size: 5rem;
+    font-weight: bolder;
+    color: blue;
+    background-position: bottom;
+    padding-top: 400px;
+    /* padding-left: 50px;
+    padding-right: 50px; */
+}
