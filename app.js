@@ -6,10 +6,12 @@ const heroImgEl = document.querySelector('#hero-img');
 const form = document.querySelector('form');
 const goblinListEl = document.querySelector('.goblins');
 const killedListEl = document.querySelector('.killed-list');
+const worldEl = document.querySelector('main');
+const gameOverEl = document.querySelector('body');
 
 // let state
 let killedGoblinsCount = 0;
-let playerHP = 10;
+let playerHP = 1;
 let goblins = [
     { name: 'Harold', hp: 1 },
     { name: 'Captain Clara', hp: 4 },
@@ -90,25 +92,35 @@ function displayGoblins() {
                     killedGoblinsCount++;
                     alert('You killed ' + goblin.name + '!');
                     killedListEl.append(`${goblin.name}, `);
-                    // killedListEl.style.backgroundColor = 'rebeccapurple';
                     killedListEl.style.backgroundImage = "url('./assets/jake-background.jpg')";
                 }
                 
                 if (playerHP === 0) {
                     heroImgEl.classList.add('game-over');
-                    alert('YOUR REIGN OF TERROR HAS ENDED');
                     alert('GAME OVER');
+                    worldEl.style.visibility = 'hidden';
+                    gameOverEl.style.backgroundImage = "url('./assets/jake-background.jpg')";
+                    // killCounterEl.style.visibility = 'hidden';
+                    // heroHPEl.style.visibility = 'hidden';
+                    // form.style.visibility = 'hidden';
+                    // goblinListEl.style.visibility = 'hidden';
+                    // killedListEl.style.visibility = 'hidden';
+                    // hero.style.visibility = 'hidden';
                 }
                   // update DOM with new goblin/player/defeated goblin state
                 heroHPEl.textContent = playerHP;
                 killCounterEl.textContent = killedGoblinsCount;
 
-                displayGoblins;
+                displayGoblins();
             });
         }
         
         goblinListEl.append(goblinEl);     
     }
+}
+
+if (worldEl.style.visibility === 'hidden') {
+    gameOverEl.style.backgroundImage = "url('./assets/jake-background.jpg')";
 }
 
 displayGoblins();
